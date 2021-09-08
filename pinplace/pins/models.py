@@ -1,6 +1,7 @@
 from django.db import models
 from taggit.managers import TaggableManager
 from django.contrib.auth.models import User
+from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 
@@ -30,8 +31,9 @@ class Lists(models.Model):
     colour = models.CharField(max_length=100, default='#FF0000')
     date_created = models.DateTimeField(auto_now_add=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    pin_id = models.ForeignKey(Pins, on_delete=models.CASCADE, blank=True)
-    
+    # pin_id = models.ForeignKey(Pins, on_delete=models.CASCADE, blank=True)
+    list_pins = ArrayField(models.IntegerField(), blank=True)
+
     class Meta:
         verbose_name_plural = "Lists"
 
