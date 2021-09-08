@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+# not utilised
 
 class Users(models.Model):
     user_id = models.BigAutoField(primary_key=True)
