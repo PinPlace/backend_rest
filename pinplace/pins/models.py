@@ -32,7 +32,8 @@ class Lists(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     # pin_id = models.ForeignKey(Pins, on_delete=models.CASCADE, blank=True)
-    list_pins = ArrayField(models.IntegerField(), blank=True)
+    list_pins = ArrayField(models.IntegerField(), blank=True, default=list)
+    # list_pins = ArrayField(models.ForeignKey(Pins,on_delete=models.CASCADE, blank=True))
 
     class Meta:
         verbose_name_plural = "Lists"
