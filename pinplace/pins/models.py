@@ -11,6 +11,7 @@ class Pins(models.Model):
     lat = models.DecimalField(max_digits=20, decimal_places=10, default=51.511511)
     lng = models.DecimalField(max_digits=20, decimal_places=10, default=-0.133492)
     address = models.CharField(max_length=300, blank=True)
+    thumb = models.CharField(max_length=300, blank=True)
     notes = models.TextField()
     tags = ArrayField(models.CharField(max_length=100), blank=True, default=list)
     colour = models.CharField(max_length=100, default='#FF0000')
