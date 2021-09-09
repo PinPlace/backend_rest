@@ -152,9 +152,10 @@ REST_FRAMEWORK = {
     # 'PAGE_SIZE': 10,
 }
 
-# CORS_ALLOWED_ORIGINS =  [
-#     'http://127.0.0.1:8000',
-#     'https://pinplace.netlify.app',
-# ]
+CORS_ALLOWED_ORIGINS =  [
+    'http://127.0.0.1:8000',
+    'https://pinplace.netlify.app',
+    'http://localhost:8000'
+]
  
-CORS_ALLOW_ALL_ORIGINS: True
+# CORS_ALLOW_ALL_ORIGINS: True
