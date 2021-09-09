@@ -14,3 +14,10 @@ cd into backend/pinplace i.e `cd ~/backend_rest/`
 Then, when you want to disconnect tmux, you do `Ctrl+B`, `D` (ie press Ctrl+B, then release both keys, and then press d)
 
 When you login again, you can run `tmux attach` and you will reconnect to tmux and see all the output that happened.
+
+to add new field
+`python manage.py make migrations`
+then
+`python manage.py migrate`
+
+You can use `tmux kill-server` to cleanly and gracefully kill all tmux open sessions (and server).
