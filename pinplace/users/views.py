@@ -1,18 +1,22 @@
 from .serializers import UserSerializer
-# from .serializers import RegistrationSerializer
-from rest_framework import viewsets, permissions
-from django.contrib.auth.models import User
-# from .forms import UserSignupForm
-# from rest_framework.response import Response
-# from rest_framework.decorators import api_view
+from rest_framework import mixins, viewsets, permissions
+from django.contrib.auth import get_user_model
 
-# Create your views here.
+User = get_user_model()
 
 # ViewSets define the view behavior.
+class AuthViewSet(viewsets.GenericViewSet, mixins.CreateModelMixin):
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
+
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
+    def update(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return super().update(request, *args, **kwargs)
+
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
